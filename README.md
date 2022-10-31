@@ -20,9 +20,9 @@ Pronto!!
 ## Imagens do projeto rodando
 
 <div align="center">
-    <img src="assets/images/tela1.png" width="400px"/>
+    <img src="./src/assets/images/tela1.png" width="400px"/>
 </div>
 
 <div align="center">
-    <img src="assets/images/tela2.png" width="400px"/>
+    <img src="./src/assets/images/tela2.png" width="400px"/>
 </div>
