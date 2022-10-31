@@ -14,17 +14,8 @@ export const styles = StyleSheet.create({
     padding: 7,
     marginBottom: 10
   },
-  name: {
-    flex: 1,
-    fontSize: 16,
-    color: '#FFF',
-    marginLeft: 16,
-  },
   button: {
-    width: 64,
-    height: 64,
-    borderRadius: 5,
-    backgroundColor: '#262626',
+   
   },
   taskButton: {
     flex: 1,
@@ -46,6 +37,7 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
   },
   taskText: {
+    flex: 1,
     color: "#FFF",
   },
   taskMarkerDone: {
@@ -58,6 +50,7 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
   },
   taskTextDone: {
+    flex: 1,
     color: "#666666",
     textDecorationLine: "line-through",
   },

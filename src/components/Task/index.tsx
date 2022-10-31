@@ -6,54 +6,25 @@ import { styles } from "./styles";
 import Trash from '../../assets/icons/trash.png';
 
 
-export interface Task {
+export interface TaskProps {
   id: number;
   name: string;
   done: boolean;
 }
 
 interface TasksItemProps {
-  task: Task;
+  task: TaskProps;
   //index: number;
-  //toggleTaskDone: (id: number) => void;
-  //removeTask: (id: number) => void;
-  //editTask: (taskId: number, taskNewTitle: string) => void;
+  toggleTaskDone: (id: number) => void;
+  removeTask: (id: number) => void;
 }
 
 export function Task({ 
-  name, 
-  /*onRemove*/ 
+  task, 
+  toggleTaskDone,
+  removeTask,
 }: TasksItemProps){
 
-  const done = true;
-  
-  const [isEditing, setIsEditing] = useState(false);
-  const textInputRef = useRef<TextInput>(null);
-
-  useEffect(() => {
-    if (textInputRef.current) {
-      if (isEditing) {
-        textInputRef.current.focus();
-      } else {
-        textInputRef.current.blur();
-      }
-    }
-  }, [isEditing]);
-
-  function handleStartEditing() {
-    return setIsEditing(true);
-  }
-
-  function handleCancelEditing() {
-    //setNewTaskTitle(title);
-    setIsEditing(false);
-  }
-
-  function handleSubmitEditing() {
-    //editTask(id, newTaskTitle);
-    setIsEditing(false);
-  }
-  
   return (
     <>
       <View style={styles.container}>
@@ -61,20 +32,19 @@ export function Task({
         <TouchableOpacity
           activeOpacity={0.7}
           style={styles.taskButton}
-          //onPress={() => toggleTaskDone(id)}
+          onPress={() => toggleTaskDone(task.id)}
         >
-          <View style={done ? styles.taskMarkerDone : styles.taskMarker} >
-            {done && <Icon name="check" size={12} color="#FFF" />}
+          <View style={task.done ? styles.taskMarkerDone : styles.taskMarker} >
+            {task.done && <Icon name="check" size={12} color="#FFF" />}
           </View>
-          <Text style={done ? styles.taskTextDone : styles.taskText}>
-          {name}
-        </Text>
+          <Text style={task.done ? styles.taskTextDone : styles.taskText}>
+            {task.name}
+          </Text>
         </TouchableOpacity>
 
-        
-
         <TouchableOpacity
-          style={styles.buttom}
+          style={styles.button}
+          onPress={() => removeTask(task.id)}
         >
           <Image source={Trash}/>
         </TouchableOpacity>
